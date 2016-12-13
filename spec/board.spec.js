@@ -30,6 +30,45 @@ describe('Board', function() {
     };
 
 
+    it('5. if there is NOT three symbols in a row, hasWon is false'  , function() {
+        var testBoard = new Board();
+        expect(testBoard.hasWon()).toEqual(false);
+        testBoard.newBoard = [
+          [null, "X", null],
+          [null, null, "X"],
+          ["X", null, null]
+        ]
+        console.log(testBoard.newBoard)
+        expect(testBoard.hasWon()).toEqual(false);
+    });
+
+    it('6. if there is three symbols in a row, hasWon is true', function() {
+        var testBoard = new Board();
+        expect(testBoard.hasWon()).toEqual(true);
+
+        testBoard.newBoard = [
+          ["X", "X", "X"],
+          [null, null, null],
+          [null, null, null]
+        ]
+        expect(testBoard.hasWon()).toEqual(true);
+
+        testBoard.newBoard = [
+          [null, "X", null],
+          [null, "X", null],
+          [null, "X", null]
+        ]
+        expect(testBoard.hasWon()).toEqual(true);
+
+        testBoard.newBoard = [
+          [null, null, "X"],
+          [null, "X", null],
+          ["X", null, null]
+        ]
+        expect(testBoard.hasWon()).toEqual(true);
+    });
+
+
   });
 
 });
