@@ -29,7 +29,6 @@ describe('Board', function() {
       checkSubArrays(i);
     }
 
-
     it('5. A completely blank board does not win', function() {
         var testBoard = new Board();
         expect(testBoard.hasWon()).toEqual(false);
@@ -73,6 +72,16 @@ describe('Board', function() {
           ["X", null, null]
         ];
         expect(testBoard.hasWon()).toEqual(true);
+    });
+
+    it('10. A game knows it is tied', function() {
+        var testBoard = new Board();
+        testBoard.newBoard = [
+          ["O", "X", "O"],
+          ["X", "X", "O"],
+          ["O", "O", "X"]
+        ];
+        expect(testBoard.hasTied()).toEqual(true);
     });
 
   });

@@ -29,12 +29,12 @@ var Board = function() {
     //subfunction to check if all elements of an array are the same
     var allSame = function(inputArray) {
       var same = true;
-      for (var x = 1; x < inputArray.length; i++) {
+      for (var x = 1; x < 3; x++) {
         if (inputArray[0] === null || inputArray[0] !== inputArray[x]) {
           same = false;
         }
-      return same;
       }
+      return same;
     };
 
     // loop to check each array for any that are allSame
@@ -46,6 +46,18 @@ var Board = function() {
     }
     return won;
   };
+
+  this.hasTied = function(){
+    var tied = false;
+    for (var i = 0; i < 3; i++) {
+      if (!this.newBoard[i].includes(null) && (this.hasWon() !== true)){
+        tied = true;
+      }
+    }
+    return tied;
+  }
+
+
 };
 
 
