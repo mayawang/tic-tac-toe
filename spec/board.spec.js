@@ -27,47 +27,53 @@ describe('Board', function() {
     var testBoard = new Board();
     for (var i = 0; i < 3; i++) {
       checkSubArrays(i);
-    };
+    }
 
 
-    it('5. if there is NOT three symbols in a row, hasWon is false'  , function() {
+    it('5. A completely blank board does not win', function() {
         var testBoard = new Board();
         expect(testBoard.hasWon()).toEqual(false);
+    });
+
+    it('6. A non-winning random board does not win', function() {
+        var testBoard = new Board();
         testBoard.newBoard = [
           [null, "X", null],
           [null, null, "X"],
           ["X", null, null]
-        ]
-        console.log(testBoard.newBoard)
+        ];
         expect(testBoard.hasWon()).toEqual(false);
     });
 
-    it('6. if there is three symbols in a row, hasWon is true', function() {
+    it('7. A horizontal win wins', function() {
         var testBoard = new Board();
-        expect(testBoard.hasWon()).toEqual(true);
-
         testBoard.newBoard = [
           ["X", "X", "X"],
           [null, null, null],
           [null, null, null]
-        ]
+        ];
         expect(testBoard.hasWon()).toEqual(true);
+    });
 
+    it('8. A vertical win wins', function() {
+        var testBoard = new Board();
         testBoard.newBoard = [
           [null, "X", null],
           [null, "X", null],
           [null, "X", null]
-        ]
+        ];
         expect(testBoard.hasWon()).toEqual(true);
+    });
 
+    it('9. A diagonal win wins', function() {
+        var testBoard = new Board();
         testBoard.newBoard = [
           [null, null, "X"],
           [null, "X", null],
           ["X", null, null]
-        ]
+        ];
         expect(testBoard.hasWon()).toEqual(true);
     });
-
 
   });
 
