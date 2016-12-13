@@ -57,6 +57,14 @@ var Board = function() {
     return tied;
   }
 
+  this.roundOver = function(){
+    if (this.hasWon() === true || this.hasTied() === true){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
 };
 

@@ -14,6 +14,9 @@ describe('Board', function() {
         expect(testBoard.newBoard.length).toEqual(3);
     });
 
+  });
+
+  describe('hasWon', function() {
     function checkSubArrays(index) {
       it('3. Each row in the board array is an array', function() {
         expect(typeof testBoard.newBoard[index]).toEqual('object');
@@ -73,6 +76,9 @@ describe('Board', function() {
         ];
         expect(testBoard.hasWon()).toEqual(true);
     });
+  });
+
+  describe('hasTied', function() {
 
     it('10. A game knows it is tied', function() {
         var testBoard = new Board();
@@ -82,6 +88,27 @@ describe('Board', function() {
           ["O", "O", "X"]
         ];
         expect(testBoard.hasTied()).toEqual(true);
+    });
+
+
+    it('11. A round is over if there is a win', function() {
+        var testBoard = new Board();
+        testBoard.newBoard = [
+          [null, null, "X"],
+          [null, "X", null],
+          ["X", null, null]
+        ];
+        expect(testBoard.roundOver()).toEqual(true);
+    });
+
+    it('12. A round is over if there is a tie', function() {
+        var testBoard = new Board();
+        testBoard.newBoard = [
+          ["O", "X", "O"],
+          ["X", "X", "O"],
+          ["O", "O", "X"]
+        ];
+        expect(testBoard.roundOver()).toEqual(true);
     });
 
   });
