@@ -60,23 +60,32 @@ describe('Game', function() {
         expect(testGame.gameBoard[1][1]).toEqual(tileChar);
         expect(testGame.whoseTurn.name).toEqual("Alyssa");
     });
-
-
   });
 
-    //
-    // it('The game should know whose turn it is', function() {
-    //     var testGame = new Game();
-    //     var testGame = new Game();
-    //     expect(testGame.whoseTurn(testPlayer,1,1)).toEqual('Maya');
-    // });
-
-    //   it('Player can choose a spot to make the move', function() {
-    //       var testPlayer = new Player('Maya');
-    //       expect(testPlayer.move(testPlayer,1,1)).toEqual('Maya');
-    //   });
-
-
-
-
+  it("8. At the end of the game, there is a winner or a tied game", function() {
+      var testGame = new Game("Maya", "X", "Alyssa", "O");
+      testGame.newRound();
+      testGame.move(0,0);
+      testGame.move(1,0);
+      testGame.move(0,1);
+      testGame.move(1,1);
+      testGame.move(0,2);
+      var emptyBoard = new Board;
+      expect(testGame.player1.score).toEqual(2);
+      expect(testGame.player2.score).toEqual(0);
+      expect(testGame.gameBoard).toEqual(emptyBoard.newBoard);
+      expect(testGame.board.hasWon()).toEqual(false);
+  });
 });
+
+
+  // describe('score', function() {
+  //
+  //   it("8. The player whose turn it is can choose where to make the move and the move goes on the gameBoard", function() {
+  //       var testGame = new Game("Maya", "X", "Alyssa", "O");
+  //       testGame.newRound();
+  //       testGame.move(1,1);
+  //       var currentPlayer = testGame.whoseTurn
+  //       testGame.move(1,2);
+  //       expect(testGame.gameBoard[1][2]).toEqual(currentPlayer.symbol);
+  //   });

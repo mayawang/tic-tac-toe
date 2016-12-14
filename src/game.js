@@ -3,6 +3,7 @@ import Player from "player";
 
 
 var Game = function (name1, symbol1, name2, symbol2) {
+
   this.player1 = new Player(name1, symbol1);
   this.player2 = new Player(name2, symbol2);
 
@@ -14,12 +15,13 @@ var Game = function (name1, symbol1, name2, symbol2) {
 
   // Namespace the gameboard to this level
   this.gameBoard;
+  this.board
 
   // Create a new round
   this.newRound = function() {
     // Generate a new game board
-    var board = new Board();
-    this.gameBoard = board.newBoard;
+    this.board = new Board();
+    this.gameBoard = this.board.newBoard;
     // Determine who starts this round:
     this.whoseTurn = this.roundStarter;
     // Change the round starter for the next round
@@ -35,15 +37,27 @@ var Game = function (name1, symbol1, name2, symbol2) {
     if (this.gameBoard[row][column] !== null){
       throw "Tile is occupied";
     }
-  
+
     this.gameBoard[row][column] = this.whoseTurn.symbol;
 
-    if (this.whoseTurn === this.player1) {
-      this.whoseTurn = this.player2;
+    if (this.board.hasWon() === true) {
+      this.whoseTurn.score += 2;
+      this.newRound();
+    }
+    else if (this.board.hasTied() === true) {
+      this.player1 += 1;
+      this.player2 += 1;
+      this.newRound();
     }
     else {
-      this.whoseTurn = this.player1;
+      if (this.whoseTurn === this.player1) {
+        this.whoseTurn = this.player2;
+      }
+      else {
+        this.whoseTurn = this.player1;
+      }
     }
+
   }
 
 
