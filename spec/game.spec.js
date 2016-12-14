@@ -4,6 +4,10 @@ import Player from "player";
 
 describe('Game', function() {
 
+  it("0. Players does not allow to use same symbol", function() {
+      expect(function(){ new Game("Maya", "X", "Alyssa", "X")}).toThrow("Please use two separate symbols");
+  });
+
   describe('newRound', function() {
 
     it("1. The game can return a gameBoard", function() {
@@ -62,7 +66,7 @@ describe('Game', function() {
     });
   });
 
-  it("8. At the end of the game, there is a winner or a tied game", function() {
+  it("8. At the end of the game, there is a winner or a tied game. winner's score increments by 2, and tied player's score increments by 1. The board is reset and new round starts", function() {
       var testGame = new Game("Maya", "X", "Alyssa", "O");
       testGame.newRound();
       testGame.move(0,0);

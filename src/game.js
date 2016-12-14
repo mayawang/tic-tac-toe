@@ -3,6 +3,9 @@ import Player from "player";
 
 
 var Game = function (name1, symbol1, name2, symbol2) {
+  if (symbol1 === symbol2) {
+    throw "Please use two separate symbols"
+  };
 
   this.player1 = new Player(name1, symbol1);
   this.player2 = new Player(name2, symbol2);
@@ -57,13 +60,7 @@ var Game = function (name1, symbol1, name2, symbol2) {
         this.whoseTurn = this.player1;
       }
     }
-
   }
-
-
-  // this.move = function(player, row, column){
-  //   Board.newBoard[row][column] = symbol;
-
 }
 
 
