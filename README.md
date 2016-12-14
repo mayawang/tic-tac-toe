@@ -1,19 +1,20 @@
 # Development Journal:
 
-## Wave 1: Alyssa & Maya Pair Programming
-Trello Board: https://trello.com/b/j5XOx7cU/alyssa-maya-tic-tac-toe
+## Wave 1: 
+- Alyssa & Maya Pair Programming
+- Trello Board: https://trello.com/b/j5XOx7cU/alyssa-maya-tic-tac-toe
 
-Critical Design Decisions:
+- Critical Design Decisions:
 
-Three Objects: Game, Player and Board;
-A Game has two players, multiple rounds and one new board for each round;
-A round has multiple moves;
-Players can not have duplicate symbols;
-A new round automatically starts when there is a winner or a tied game;
-Round starter will be switched in turns for each round;
-Score is an attribute of player, and increments in Game.move;
-Winner's score increments by 2, loser's score increments by 0, tied game both players' scores increments by 1.
-Used TDD. All testing completed with full coverage.
+  - Three Objects: Game, Player and Board;
+  - A Game has two players, multiple rounds and one new board for each round;
+  - A round has multiple moves;
+  - Players can not have duplicate symbols;
+  - A new round automatically starts when there is a winner or a tied game;
+  - Round starter will be switched in turns for each round;
+  - Score is an attribute of player, and increments in Game.move;
+  - Winner's score increments by 2, loser's score increments by 0, tied game both players' scores increments by 1.
+  - Used TDD. All testing completed with full coverage.
 
 WE ROCK!!! YAY!
 
