@@ -32,7 +32,12 @@ var Game = function (name1, symbol1, name2, symbol2) {
   }
 
   this.move = function(row, column) {
+    if (this.gameBoard[row][column] !== null){
+      throw "Tile is occupied";
+    }
+  
     this.gameBoard[row][column] = this.whoseTurn.symbol;
+
     if (this.whoseTurn === this.player1) {
       this.whoseTurn = this.player2;
     }
