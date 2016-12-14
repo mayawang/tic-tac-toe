@@ -1,5 +1,6 @@
-var Player = function(name) {
+var Player = function(name, symbol) {
   this.name = name;
+  this.symbol = symbol;
 };
 
 
