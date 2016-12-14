@@ -4,7 +4,7 @@
 - Alyssa & Maya Pair Programming
 - Trello Board: https://trello.com/b/j5XOx7cU/alyssa-maya-tic-tac-toe
 
-- Critical Design Decisions:
+- **Critical Design Decisions**:
 
   - Three Objects: Game, Player and Board;
   - A Game has two players, multiple rounds and one new board for each round;
