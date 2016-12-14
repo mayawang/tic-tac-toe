@@ -1,4 +1,6 @@
 # Development Journal:
+
+## Wave 1: Alyssa & Maya Pair Programming
 Trello Board: https://trello.com/b/j5XOx7cU/alyssa-maya-tic-tac-toe
 
 Critical Design Decisions:
