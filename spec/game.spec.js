@@ -81,15 +81,3 @@ describe('Game', function() {
       expect(testGame.board.hasWon()).toEqual(false);
   });
 });
-
-
-  // describe('score', function() {
-  //
-  //   it("8. The player whose turn it is can choose where to make the move and the move goes on the gameBoard", function() {
-  //       var testGame = new Game("Maya", "X", "Alyssa", "O");
-  //       testGame.newRound();
-  //       testGame.move(1,1);
-  //       var currentPlayer = testGame.whoseTurn
-  //       testGame.move(1,2);
-  //       expect(testGame.gameBoard[1][2]).toEqual(currentPlayer.symbol);
-  //   });
