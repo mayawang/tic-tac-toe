@@ -9,7 +9,6 @@ Trello Board: https://trello.com/b/j5XOx7cU/alyssa-maya-tic-tac-toe
 - Three Objects: Game, Player and Board;
 - A Game has two players, multiple rounds and one new board for each round;
 - A round has multiple moves;
-- Players can not have duplicate symbols;
 - A new round automatically starts when there is a winner or a tied game;
 - Round starter will be switched in turns for each round;
 - Score is an attribute of player, and increments in Game.move;
