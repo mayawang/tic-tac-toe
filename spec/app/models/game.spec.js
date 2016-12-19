@@ -1,6 +1,6 @@
-import Game from "game";
-import Board from "board";
-import Player from "player";
+import Game from "app/models/game";
+import Board from "app/collections/board";
+import Player from "app/models/player";
 
 describe('Game', function() {
 

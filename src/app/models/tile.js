@@ -1,10 +1,10 @@
 import Backbone from 'backbone';
 
-const Contact = Backbone.Model.extend({
+const Tile = Backbone.Model.extend({
   // This model has the attributes for
   // a single contact: name, phone number, and email.
   defaults:{
-    symbol: "Placeholder name",
+    symbol: null,
 
   },
 
@@ -13,4 +13,4 @@ const Contact = Backbone.Model.extend({
   },
 });
 
-export default Contact;
+export default Tile;

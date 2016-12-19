@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-const ApplicationView = Backbone.View.extend({
+const GameView = Backbone.View.extend({
   initialize: function() {
     this.render();
   },
@@ -10,4 +10,4 @@ const ApplicationView = Backbone.View.extend({
   }
 });
 
-export default ApplicationView;
+export default GameView;

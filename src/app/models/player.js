@@ -9,5 +9,4 @@ const Player = Backbone.Model.extend({
 });
 
 
-
 export default Player;

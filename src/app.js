@@ -39,9 +39,9 @@ $(document).ready(function() {
     player2: p2,
   });
 
-  var applicationView = new ApplicationView({
-    el: $('#application'),
-    model: application
+  var gameView = new GameView({
+    el: $('#game'),
+    model: game
   });
-  application.render();
+  game.render();
 });
