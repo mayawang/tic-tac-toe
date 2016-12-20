@@ -1,6 +1,6 @@
 import $ from 'jquery';
-import Application from 'app/models/application';
-import ApplicationView from 'app/views/application_view';
+import Game from 'app/models/game';
+import GameView from 'app/views/game_view';
 import Tile from 'app/models/tile';
 import TileView from 'app/views/tile_view';
 import Board from 'app/collections/board';
@@ -31,9 +31,18 @@ var appView = new ApplicationView({
 
 $(document).ready(function() {
   var board = new Board(initialTiles);
-  var p1 = new Player();
-  var p2 = new Player();
-  var application = new Application({
+
+  var p1 = new Player({
+    name: "player 1",
+    symbol: "O",
+  });
+
+  var p2 = new Player({
+    name: "player 2",
+    symbol: "X",
+  });
+
+  var game = new Game({
     board: board,
     player1: p1,
     player2: p2,
@@ -43,5 +52,6 @@ $(document).ready(function() {
     el: $('#game'),
     model: game
   });
-  game.render();
+
+  gameView.render();
 });
