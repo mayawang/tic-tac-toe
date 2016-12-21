@@ -2,15 +2,20 @@ body {
   background-color: #16202C;
 }
 
-h1, h2, h3, h4, h5, h6, p, label {
-  font-family: 'Nunito', sans-serif;
+h1 {
+  margin-top: 10%;
+  font-family: 'Molle', cursive;
+}
+
+h3{
+  font-family: cursive;
 }
 
 header {
   text-align: center;
   width: 30%;
   position: fixed;
-  background-image: url("/imgs/sparks.jpeg");
+  background-image: url("http://68.media.tumblr.com/ec9498dc590c98b108830e87df9063b6/tumblr_oa93ea33vC1qbg3s6o1_500.png");
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -19,6 +24,8 @@ header {
 }
 
 .left-panel {
+  margin-top: 20%;
+  font-family: cursive;
   background-color: rgba(0, 0, 0, 0.35);
 }
 

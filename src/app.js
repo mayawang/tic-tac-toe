@@ -26,12 +26,12 @@ $(document).ready(function() {
   var board = new Board(initialTiles);
 
   var p1 = new Player({
-    name: "player 1",
+    name: "Player 1",
     symbol: "O",
   });
 
   var p2 = new Player({
-    name: "player 2",
+    name: "Player 2",
     symbol: "X",
   });
 
