@@ -27,28 +27,14 @@ header {
   font-size: 1.5rem;
 }
 
-/*#contact-details {
-  z-index: 10;
-  position: fixed;
-  width: 30%;
-  height: 30%;
-  top: 30%;
-  left: 30%;
-  background-color: #538ca3;
-  text-align: center;
-  border: 1em solid white;
-  margin-left: 20%;
-  border-radius: 20%;
-}*/
-
 #board {
-  font-size: 4rem;
+  font-size: 5vw;
   font-weight: bold;
   position:relative;
   left: 50%;
-  margin-top: 2%;
-  width: 28rem;
-  height: 28rem;
+  margin-top: 3%;
+  width: 33vw;
+  height: 33vw;
   margin-right: auto;
   margin-left: auto;
   padding: 0;
@@ -60,11 +46,11 @@ header {
   color: white;
   display: inline-block;
   background-color: pink;
-  width: 8rem;
-  height: 8rem;
-  margin: .33rem;
+  width: 10vw;
+  height: 10vw;
+  margin: .33vw;
   opacity: 0.8;
-  border: 1rem solid transparent;
+  border: 1vw solid transparent;
 }
 
 /*.tile:hover {

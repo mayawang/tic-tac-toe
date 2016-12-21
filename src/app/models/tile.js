@@ -4,8 +4,7 @@ const Tile = Backbone.Model.extend({
   // This model has the attributes for
   // a single contact: name, phone number, and email.
   defaults:{
-    symbol: null,
-
+    symbol: null
   },
 
   initialize: function(option){

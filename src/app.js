@@ -9,17 +9,17 @@ import Player from 'app/models/player';
 import PlayerView from 'app/views/player_view';
 
 var initialTiles = [
-  { symbol: 'O' },
-  { symbol: 'O' },
-  { symbol: 'O' },
+  { symbol: null },
+  { symbol: null },
+  { symbol: null },
 
-  { symbol: 'O' },
-  { symbol: 'X' },
-  { symbol: 'O' },
+  { symbol: null },
+  { symbol: null },
+  { symbol: null },
 
-  { symbol: 'X' },
-  { symbol: 'O' },
-  { symbol: 'O' },
+  { symbol: null },
+  { symbol: null },
+  { symbol: null },
 ];
 
 $(document).ready(function() {

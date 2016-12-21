@@ -5,6 +5,7 @@ import Backbone from 'backbone';
 const PlayerView = Backbone.View.extend({
     initialize: function(options){
       this.template = _.template($('#tmpl-player').html());
+      this.listenTo(this.model, "change", this.render);
     },
     render: function() {
       // reconnect all Event Handlers

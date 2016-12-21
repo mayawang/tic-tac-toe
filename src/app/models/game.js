@@ -58,6 +58,8 @@ const Game = Backbone.Model.extend({
     winner.set("score", winnerScore + 2);
 
     // decide whether to start a new round
+    return this.newRound()
+
   },
 
   gameTied: function() {
@@ -69,12 +71,14 @@ const Game = Backbone.Model.extend({
     this.get("player2").set("score", player2Score + 1);
 
     // decide whether to start a new round
+    return this.newRound()
+
   },
 
-  move: function(index) {
+  move: function(cid) {
     var currentPlayer = this.get("whoseTurn");
     var symbol = currentPlayer.get("symbol");
-    this.get("board").move(index, symbol);
+    this.get("board").move(cid, symbol);
 
     // swap player after making a move
     if (currentPlayer === this.get("player1")) {
