@@ -42,25 +42,36 @@ header {
 }*/
 
 #board {
-  width: 70%;
-  margin: 0 auto;
-  float: right;
+  font-size: 4rem;
+  font-weight: bold;
+  position:relative;
+  left: 50%;
+  margin-top: 2%;
+  width: 28rem;
+  height: 28rem;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+  display: inline-block;
   text-align: center;
 }
 
 .tile {
+  color: white;
   display: inline-block;
-  padding: 2%;
-  margin: 2%;
-  background-color: #fff;
-  border-radius: 2%;
+  background-color: pink;
+  width: 8rem;
+  height: 8rem;
+  margin: .33rem;
+  opacity: 0.8;
+  border: 1rem solid transparent;
 }
 
-.tile:hover {
+/*.tile:hover {
     cursor: pointer;
     background-color: #538ca3;
-}
+}*/
 
-.tile:hover h3 {
+/*.tile:hover h3 {
   color: white;
-}
+}*/
