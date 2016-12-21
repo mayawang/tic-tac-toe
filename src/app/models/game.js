@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 
-import Board from "board";
-import Player from "player";
+import Board from "app/collections/board";
+import Player from "app/models/player";
 
 
 const Game = Backbone.Model.extend({
@@ -30,13 +30,13 @@ const Game = Backbone.Model.extend({
     this.set("roundStarter", player1);
 
     // Namespace whose turn to this level
-    this.set("whoseTurn", this.get("roundStarter");
+    this.set("whoseTurn", this.get("roundStarter"));
   },
 
   // Create a new round
   newRound: function() {
     // Generate a new game board
-    this.get("board").reset();
+    this.get("board").clearBoard();
 
     // Change the round starter for the next round
     if (this.get("roundStarter") === this.get("player1")) {
@@ -46,7 +46,7 @@ const Game = Backbone.Model.extend({
     }
 
     // Determine who starts this round:
-    this.set("whoseTurn", this.get("roundStarter");
+    this.set("whoseTurn", this.get("roundStarter"));
   },
 
   gameWon: function() {
@@ -71,16 +71,16 @@ const Game = Backbone.Model.extend({
     // decide whether to start a new round
   },
 
-  move: function(row, col) {
+  move: function(index) {
     var currentPlayer = this.get("whoseTurn");
     var symbol = currentPlayer.get("symbol");
-    this.get("board").move(row, col, symbol);
+    this.get("board").move(index, symbol);
 
     // swap player after making a move
     if (currentPlayer === this.get("player1")) {
       this.set("whoseTurn", this.get("player2"));
     } else {
-      this.set("whoseTurn"), this.get("player1"));
+      this.set("whoseTurn", this.get("player1"));
     }
   }
 });

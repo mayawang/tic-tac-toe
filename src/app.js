@@ -5,6 +5,8 @@ import Tile from 'app/models/tile';
 import TileView from 'app/views/tile_view';
 import Board from 'app/collections/board';
 import BoardView from 'app/views/board_view';
+import Player from 'app/models/player';
+import PlayerView from 'app/views/player_view';
 
 var initialTiles = [
   { symbol: 'O' },
@@ -19,15 +21,6 @@ var initialTiles = [
   { symbol: 'O' },
   { symbol: 'O' },
 ];
-
-/*
-var application = new Application();
-
-var appView = new ApplicationView({
-  el: '#application',
-  model: application
-});
-*/
 
 $(document).ready(function() {
   var board = new Board(initialTiles);

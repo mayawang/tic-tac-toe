@@ -1,4 +1,7 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
+import PlayerView from 'app/views/player_view';
+import BoardView from 'app/views/board_view';
 
 const GameView = Backbone.View.extend({
   initialize: function() {
@@ -16,6 +19,8 @@ const GameView = Backbone.View.extend({
     this.boardView = new BoardView({
       model: this.model.get('board'),
     });
+
+    this.listenTo(this.boardView, "move_tile", this.moveTile);
 
     this.render();
   },
@@ -38,10 +43,16 @@ const GameView = Backbone.View.extend({
 
     this.boardElement.empty();
     this.boardView.render();
-    this.boardElement.append(boardView.$el);
+    this.boardElement.append(this.boardView.$el);
 
     return this;
+  },
+
+  moveTile: function(tile_id){
+    this.model.move(tile_id);
   }
+
+
 });
 
 export default GameView;

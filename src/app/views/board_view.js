@@ -42,13 +42,15 @@ const BoardView = Backbone.View.extend({
       template: this.tileTemplate
     });
 
-    this.listenTo(TileView, "tile_clicked", this.tileClicked);
+    this.listenTo(tileView, "tile_clicked", this.tileClicked);
     this.tileViewList.push(tileView);
   },
 
-  tileClicked: function() {
-    // TODO get the tile id being clicked
+  tileClicked: function(tile_id) {
+    this.trigger("move_tile", tile_id);
   },
+
+
 });
 
 export default BoardView;

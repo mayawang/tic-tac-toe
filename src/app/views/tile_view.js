@@ -25,7 +25,7 @@ const TileView = Backbone.View.extend({
 
   tileClicked: function(event) {
     event.stopPropagation();
-    this.trigger("tile_clicked");
+    this.trigger("tile_clicked", this.model.cid);
   },
 });
 
