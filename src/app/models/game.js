@@ -1,8 +1,9 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
 
 import Board from "app/collections/board";
 import Player from "app/models/player";
-
+import SavedGame from "app/models/saved_game";
 
 const Game = Backbone.Model.extend({
   // This model represents the overall application.
@@ -13,6 +14,8 @@ const Game = Backbone.Model.extend({
     roundStarter: null,
     whoseTurn: null,
   },
+
+  GameAPIRoot: 'http://localhost:3000',
 
   initialize: function(option) {
     var player1 = this.get('player1');
@@ -52,14 +55,12 @@ const Game = Backbone.Model.extend({
   gameWon: function() {
     // determine winner
     var winner = this.get("whoseTurn");
-
     // add score to winner
     var winnerScore = winner.get("score");
     winner.set("score", winnerScore + 2);
-
     // decide whether to start a new round
-    return this.newRound()
-
+    this.saveGame();
+    return this.newRound();
   },
 
   gameTied: function() {
@@ -70,6 +71,7 @@ const Game = Backbone.Model.extend({
     var player2Score = this.get("player2").get("score");
     this.get("player2").set("score", player2Score + 1);
 
+    this.saveGame();
     // decide whether to start a new round
     return this.newRound()
 
@@ -86,7 +88,61 @@ const Game = Backbone.Model.extend({
     } else {
       this.set("whoseTurn", this.get("player1"));
     }
+  },
+
+  boardToArray: function(){
+    return this.get("board").models.map(function(tile){
+      if (tile.get("symbol")){
+        return tile.get("symbol");
+      } else {
+        return " ";
+      }
+    });
+  },
+
+  playerToArray: function(){
+    return [this.get('player1').get("name"), this.get('player2').get("name")];
+  },
+
+  outcome: function(){
+    if (this.get("board").hasWon()){
+      var winner = this.get("whoseTurn")
+      return winner.get("symbol");
+    } else if (this.get("board").hasTied()){
+      return "draw";
+    } else {
+      throw "logic error."
+    }
+  },
+
+  playedAt: function(){
+    var date = new Date();
+    return date.toISOString();
+  },
+
+  saveGame: function(){
+    var gameData = new SavedGame({
+      board: this.boardToArray(),
+      players: this.playerToArray(),
+      outcome: this.outcome(),
+      played_at: this.playedAt()
+    });
+
+    $.post({
+      url: this.GameAPIRoot + '/api/v1/games',
+      data: gameData.toJSON(),
+      dataType: "json",
+    }).done(function() {
+      console.log("saved game data");
+    }).fail(function(err) {
+      if (err.status === 201) {
+        console.log("saved game data");
+      } else {
+        console.warn("failed to save game data", err);
+      }
+    });
   }
+
 });
 
 
