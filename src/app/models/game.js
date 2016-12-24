@@ -21,6 +21,7 @@ const Game = Backbone.Model.extend({
     var player1 = this.get('player1');
     var player2 = this.get('player2');
     var board = this.get('board');
+    var savedGames = this.get('savedGames');
 
     this.listenTo(board, "game_won", this.gameWon);
     this.listenTo(board, "game_tied", this.gameTied);
@@ -120,6 +121,17 @@ const Game = Backbone.Model.extend({
     return date.toISOString();
   },
 
+  reloadHistory: function() {
+    this.get('savedGames').fetch({
+      success: function() {
+        console.log("loaded game history");
+      },
+      error: function(collection, response, options) {
+        console.warn("failed to load game history", response);
+      },
+    });
+  },
+
   saveGame: function(){
     var gameData = new SavedGame({
       board: this.boardToArray(),
@@ -134,9 +146,11 @@ const Game = Backbone.Model.extend({
       dataType: "json",
     }).done(function() {
       console.log("saved game data");
+      this.reloadHistory();
     }).fail(function(err) {
       if (err.status === 201) {
         console.log("saved game data");
+        this.reloadHistory();
       } else {
         console.warn("failed to save game data", err);
       }

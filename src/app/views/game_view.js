@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Backbone from 'backbone';
 import PlayerView from 'app/views/player_view';
 import BoardView from 'app/views/board_view';
+import SavedGamesView from 'app/views/saved_games_view';
 
 const GameView = Backbone.View.extend({
   initialize: function() {
@@ -19,6 +20,13 @@ const GameView = Backbone.View.extend({
     this.boardView = new BoardView({
       model: this.model.get('board'),
     });
+
+    var savedGames = this.model.get('savedGames');
+
+    this.saveGamesView = new SavedGamesView({
+      model: savedGames,
+    });
+    this.model.reloadHistory();
 
     this.listenTo(this.boardView, "move_tile", this.moveTile);
 

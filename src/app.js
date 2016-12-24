@@ -27,15 +27,14 @@ var initialTiles = [
 $(document).ready(function() {
   var board = new Board(initialTiles);
   var savedGames = new SavedGames();
-  savedGames.fetch();
 
   var p1 = new Player({
-    name: "Player 1",
+    name: "Player O",
     symbol: "O",
   });
 
   var p2 = new Player({
-    name: "Player 2",
+    name: "Player X",
     symbol: "X",
   });
 
@@ -43,6 +42,7 @@ $(document).ready(function() {
     board: board,
     player1: p1,
     player2: p2,
+    savedGames: savedGames,
   });
 
   var gameView = new GameView({
