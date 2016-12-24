@@ -18,7 +18,7 @@ const BoardView = Backbone.View.extend({
     }, this); // bind `this` so it's available inside forEach
 
     this.listenTo(this.model, "update", this.render);
-    this.listenTo(this.model, "add", this.addContactView);
+    this.listenTo(this.model, "add", this.addTileView);
   },
 
   render: function() {

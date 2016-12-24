@@ -23,8 +23,8 @@ header {
   color: rgb(211, 231, 231);
 }
 
-.left-panel {
-  margin-top: 20%;
+.left-panel, .left-panel_2{
+  margin-top: 5%;
   font-family: cursive;
   background-color: rgba(0, 0, 0, 0.50);
 }

@@ -19,6 +19,13 @@
             <!-- render player details in app view -->
           </div>
         </section>
+
+        <section class="row left-panel_2">
+          <h3>History</h3>
+          <div id="history" class="columns" >
+            <!-- render player details in app view -->
+          </div>
+        </section>
       </header>
 
       <main>
@@ -36,6 +43,11 @@
     <script type="text/template" id="tmpl-player">
       <div><%- name %></div>
       <div><%- score %></div>
+    </script>
+
+    <script type="text/template" id="tmpl-history">
+      <div><%- game %></div>
+
     </script>
 
     <!-- Entire JS project built by Webpack -->

@@ -5,12 +5,7 @@ import Board from 'app/collections/board';
 import Player from 'app/models/player';
 
 // create saved_game model
-
 const SavedGame = Backbone.Model.extend({
-
-
-
-
 });
 
 
