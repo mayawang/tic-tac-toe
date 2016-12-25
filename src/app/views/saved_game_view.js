@@ -18,14 +18,16 @@ const SavedGameView = Backbone.View.extend({
     return this;
   },
 
-  // events: {
-  //   'click': "tileClicked",
-  // },
-  //
-  // tileClicked: function(event) {
-  //   event.stopPropagation();
-  //   this.trigger("tile_clicked", this.model.cid);
-  // }
+  events: {
+    'click .btn-delete': "deleteClicked",
+  },
+
+  deleteClicked: function(event) {
+    event.stopPropagation();
+    console.log("delete button clicked")
+    this.trigger("delete_clicked", this.model.get('id'));
+    console.log("delete button triggered")
+  }
 
 });
 

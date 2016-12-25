@@ -19,6 +19,7 @@ const SavedGamesView = Backbone.View.extend({
 
     this.listenTo(this.model, "update", this.render);
     this.listenTo(this.model, "add", this.addSavedGameView);
+    this.listenTo(this.model, "remove", this.removeSavedGameView);
   },
 
   render: function() {
@@ -43,8 +44,43 @@ const SavedGamesView = Backbone.View.extend({
     });
 
     this.listenTo(savedGameView, "delete_clicked", this.deleteClicked);
+    console.log("savedGameView listened")
+
     this.savedGameViewList.push(savedGameView);
-  }
+  },
+
+  removeSavedGameView: function(removedSavedGame) {
+    this.render();
+  },
+
+  removeSavedGameViewWithID: function(id) {
+    var toDeleteIndex = -1;
+    this.savedGameViewList.find(function(savedGameView, index) {
+      if (savedGameView.model.get('id') === id) {
+        toDeleteIndex = index;
+      }
+    })
+    if (toDeleteIndex == -1) {
+      console.warn('cannot find saved game to remove')
+    } else {
+      this.savedGameViewList.splice(toDeleteIndex, 1);
+    }
+  },
+
+  deleteClicked: function(id){
+    var savedGame = this.model.get(id)
+    this.removeSavedGameViewWithID(id);
+
+    savedGame.destroy({
+      success: function() {
+        console.log('deleted game id', id)
+        this.model.remove(id)
+      },
+      error: function(model, response) {
+        console.warn('failed to delete game', id, response)
+      },
+    });
+  },
 
 });
 
