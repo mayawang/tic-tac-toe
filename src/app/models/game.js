@@ -140,6 +140,7 @@ const Game = Backbone.Model.extend({
       played_at: this.playedAt()
     });
 
+    var self = this;
     $.post({
       url: this.GameAPIRoot + '/api/v1/games',
       data: gameData.toJSON(),
@@ -150,7 +151,7 @@ const Game = Backbone.Model.extend({
     }).fail(function(err) {
       if (err.status === 201) {
         console.log("saved game data");
-        this.reloadHistory();
+        self.reloadHistory();
       } else {
         console.warn("failed to save game data", err);
       }

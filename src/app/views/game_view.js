@@ -31,6 +31,7 @@ const GameView = Backbone.View.extend({
     this.listenTo(this.boardView, "move_tile", this.moveTile);
 
     this.render();
+    console.log("render history")
   },
 
   events: {

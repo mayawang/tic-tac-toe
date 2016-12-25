@@ -24,9 +24,7 @@ const SavedGameView = Backbone.View.extend({
 
   deleteClicked: function(event) {
     event.stopPropagation();
-    console.log("delete button clicked")
     this.trigger("delete_clicked", this.model.get('id'));
-    console.log("delete button triggered")
   }
 
 });
