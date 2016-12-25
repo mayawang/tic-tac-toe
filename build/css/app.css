@@ -13,7 +13,7 @@ h3{
 
 header {
   text-align: center;
-  width: 30%;
+  width: 33%;
   position: fixed;
   background-image: url("http://68.media.tumblr.com/ec9498dc590c98b108830e87df9063b6/tumblr_oa93ea33vC1qbg3s6o1_500.png");
   background-size: cover;
@@ -23,13 +23,19 @@ header {
   color: rgb(211, 231, 231);
 }
 
-.left-panel {
-  margin-top: 20%;
+.left-panel, .left-panel_2 {
+  margin-top: 5%;
   font-family: cursive;
   background-color: rgba(0, 0, 0, 0.50);
 }
 
-.left-panel label {
+#history {
+  font-family: serif;
+  overflow-y: scroll;
+  height: 10%;
+}
+
+.left-panel label, .left-panel_2 label {
   color: white;
   font-size: 1.5rem;
 }
@@ -55,9 +61,16 @@ header {
   background-color: pink;
   width: 10vw;
   height: 10vw;
-  margin: .33vw;
+  margin: 0.33vw;
   opacity: 0.8;
   border: 1vw solid transparent;
+}
+
+.btn-delete {
+  font-size: 0.6vw;
+  font-family: sans-serif;
+  margin-left: 5%;
+  border-radius: 20%;
 }
 
 /*.tile:hover {

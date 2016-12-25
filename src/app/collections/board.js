@@ -19,7 +19,7 @@ const Board = Backbone.Collection.extend({
       [this.at(0), this.at(3), this.at(6)],
       [this.at(1), this.at(4), this.at(7)],
       [this.at(2), this.at(5), this.at(8)],
-      
+
       // Diagonal wins
       [this.at(0), this.at(4), this.at(8)],
       [this.at(2), this.at(4), this.at(6)],
@@ -47,7 +47,7 @@ const Board = Backbone.Collection.extend({
          isfull = false;
       }
     }
-    return isfull && !this.hasWon()
+    return isfull && !this.hasWon();
   },
 
   roundOver: function(){
@@ -72,7 +72,7 @@ const Board = Backbone.Collection.extend({
       this.trigger("game_won");
     } else if (this.hasTied()) {
       this.trigger("game_tied");
-    }
+    } 
   }
 
 });
